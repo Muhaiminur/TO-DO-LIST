@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TO DO LIST</string>
+    <!--Login Page-->
+    <string name="login_email_string">Email</string>
+    <string name="login_password_string">Password</string>
+    <string name="login_remember_string">Remember Me</string>
+    <string name="login_forgot_string">Forgot Password?</string>
+    <string name="login_log_string">LOG IN</string>
+    <string name="login_registration_string">Do not have an account? Create Account First</string>
+    <string name="login_reg_string">Create An Account</string>
+
+
+    <!--REgistration-->
+    <!-- Registration Page string -->
+    <string name="registration_username_hint">Enter Full Name</string>
+    <string name="registration_email_hint">Enter Email Address</string>
+    <string name="registration_password_hint">Enter Password</string>
+    <string name="registration_confirm_password_hint">Enter Confirm Password</string>
+    <string name="registration_button_string">Create An Account</string>
+    <string name="registration_login_button_string">You Have An Account?Login Here</string>
+
+    <string name="edit_task_string">Edit Your Task</string>
+
+</resources>
