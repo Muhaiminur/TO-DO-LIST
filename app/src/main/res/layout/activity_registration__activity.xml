@@ -26,7 +26,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="100dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_plus" />
+                android:src="@mipmap/ic_launcher" />
 
             <EditText
                 android:id="@+id/registration_name"

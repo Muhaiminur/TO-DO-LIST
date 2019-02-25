@@ -20,5 +20,6 @@
     <string name="registration_login_button_string">You Have An Account?Login Here</string>
 
     <string name="edit_task_string">Edit Your Task</string>
+    <string name="new_task_string">Add New Task</string>
 
 </resources>

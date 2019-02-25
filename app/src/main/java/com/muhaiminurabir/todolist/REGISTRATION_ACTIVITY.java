@@ -1,5 +1,6 @@
 package com.muhaiminurabir.todolist;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,8 +45,12 @@ public class REGISTRATION_ACTIVITY extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration__activity);
+        //action bar hide for full screen
+        getSupportActionBar().hide();
+        //this is for boilerplate
         ButterKnife.bind(this);
         context = REGISTRATION_ACTIVITY.this;
+        //initialize Firebase
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -53,6 +58,7 @@ public class REGISTRATION_ACTIVITY extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.registration_complete:
+                //checking input validation
                 if (TextUtils.isEmpty(registrationEmail.getText().toString()) || TextUtils.isEmpty(registrationPassword.getText().toString())) {
                     Toast.makeText(context, "CHECK YOUR INPUT", Toast.LENGTH_SHORT).show();
                 } else if (!registrationEmail.getText().toString().contains("@")) {
@@ -60,16 +66,23 @@ public class REGISTRATION_ACTIVITY extends AppCompatActivity {
                 } else if (!registrationPassword.getText().toString().equals(registrationConfirmPassword.getText().toString())) {
                     Toast.makeText(context, "Password and Confirm Password Not Matched", Toast.LENGTH_SHORT).show();
                 } else {
-                    setRegistrationEmail(registrationEmail.getText().toString(),registrationPassword.getText().toString());
+                    setRegistrationEmail(registrationEmail.getText().toString(), registrationPassword.getText().toString());
                 }
                 break;
             case R.id.registration_login:
+                //go to registration service
                 startActivity(new Intent(context, MainActivity.class));
                 break;
         }
     }
 
+    //registration work
     public void setRegistrationEmail(String email, String pass) {
+        //show progressdialouge
+        final ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setMessage("Login, please wait.");
+        dialog.show();
+
         mAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -77,13 +90,19 @@ public class REGISTRATION_ACTIVITY extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(context, "Registration Created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(context,MainActivity.class));
+                            startActivity(new Intent(context, MainActivity.class));
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
                             Toast.makeText(context, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
