@@ -28,6 +28,9 @@ Welcome to the TO-DO-LIST wiki!
 ### DELETE/BULK DELETE FROM TO DO LIST
 ![DELETE/BULK DELETE FROM TO DO LIST](https://github.com/Muhaiminur/TO-DO-LIST/blob/master/DOCUMENTATION/UI/Bulk_delete__to_do_list.gif)
 
+### DATABASE MODEL
+![DATABASE MODEL](https://github.com/Muhaiminur/TO-DO-LIST/blob/master/DOCUMENTATION/UI/DATABASE.PNG)
+
 ### VIDEO DOCUMENTATION
 [![VIDEO DOCUMENTATION](https://img.youtube.com/vi/7qfgjZ4oFeQ/0.jpg)](https://www.youtube.com/watch?v=7qfgjZ4oFeQ)
 
